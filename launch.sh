@@ -6,8 +6,8 @@ NULL_DEV_NODE=dev/null
 CONSOLE_DEV_NODE=dev/console                                                                                                                                                                                       
 DEV_DIR_NODE=$PWD/$ROOTFS_ARM64/dev
 
-if [ $# -ne 3 ]; then                                                                                                                                                                                              
-    echo "Usage: $0 [arch] [compile/compiled/run/debug/]"                                                                                                                                                                                
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 [arch] [compile/compiled/run/debug/]"
     exit 1
 fi 
 
