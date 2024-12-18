@@ -6,8 +6,9 @@ NULL_DEV_NODE=dev/null
 CONSOLE_DEV_NODE=dev/console                                                                                                                                                                                       
 DEV_DIR_NODE=$PWD/$ROOTFS_ARM64/dev
 
-if [ $# -lt 1 ]; then                                                                                                                                                                                              
+if [ $# -ne 3 ]; then                                                                                                                                                                                              
     echo "Usage: $0 [arch] [compile/compiled/run/debug/]"                                                                                                                                                                                
+    exit 1
 fi 
 
 if [ $1 == "arm64" ] && [ $2 == "compile" ]; then
@@ -80,8 +81,9 @@ fi
 
 ##################gdbinit script########################
 #target remote localhost:1234
+#./fix_vmlinux_head_entry.sh
 #set disassemble-next-line on
-#b stext
+#b _text
 #b start_kernel
 #layout src
 #layout regs

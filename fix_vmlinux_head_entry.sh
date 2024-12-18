@@ -10,7 +10,7 @@ get_section_address_objdump() {
     echo "$modified_address"
 }
 
-sections=(".head.text" ".text" ".rodata" ".init.text" ".rodata.text")
+sections=(".head.text" ".text" ".rodata" ".init.text" ".rodata.text" ".init.data")
 
 # 获取各个段的入口地址
 addresses=()
@@ -20,5 +20,5 @@ for section in "${sections[@]}"; do
 done
 
 # 输出结果
-echo "add-symbol-file $ELF_FILE -s ${sections[0]} ${addresses[0]} -s ${sections[1]} ${addresses[1]} -s ${sections[2]} ${addresses[2]} -s ${sections[3]} ${addresses[3]} -s ${sections[4]} ${addresses[4]}"
+echo "add-symbol-file $ELF_FILE -s ${sections[0]} ${addresses[0]} -s ${sections[1]} ${addresses[1]} -s ${sections[2]} ${addresses[2]} -s ${sections[3]} ${addresses[3]} -s ${sections[4]} ${addresses[4]} -s ${sections[5]} ${addresses[5]}"
 
